@@ -409,7 +409,7 @@ fi
 # Finally, show a newcomer's welcome!
 echo "
 
-                                                  _____ _____
+                                                 _____ _____
           IMMERSIVE                               (|)   (|)
           SEMI-                      _____      ___/)   (\\___      _____
           AUTONOMOUS                  (|)——————//···········\\\\——————(|)
@@ -453,7 +453,26 @@ Ctrl + Alt  +  < ⌄ >   RESIZE THE SPLITS CREATED WITH F3/F7
         $ ai                smart menu to search and select PACKAGES TO INSTALL
         $ ar                smart menu to search and select PACKAGES TO REMOVE
 
-        $ find <pattern>    FIND A FILE WHOSE NAME CONTAINS <pattern>
+        $ fd <pattern>      FIND A FILE WHOSE NAME CONTAINS <pattern>
+        
+        $ rcd               roscd - with a smart menu!
+
+        $ rsl               rosserice list
+        $ rsi               rosservice info - with a smart menu!
+        $ rsc               rosservice call - with a smart menu!
+
+        $ rtl               rostopic list
+        $ rti               rostopic info - with a smart menu!
+        $ rte               rostopic echo - with a smart menu!
+
+        $ rnl               rosnode list
+        $ rni               rosnode info - with a smart menu!
+        $ rnp               rosnode ping - with a smart menu!
+        $ rnk               rosnode kill - with a smart menu!
+
+        $ rl                roslaunch - with a smart menu!
+        $ red               rosed - with a smart menu!
+        $ rr                rosrun
 
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
