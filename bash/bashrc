@@ -8,6 +8,7 @@ export ROS_HOSTNAME=localhost
 
 
 
+
 # catkin_make is too long... ;)
 alias cm=catkin_make
 
@@ -30,7 +31,14 @@ function remake_sdk
     cd $WORKSPACE/src/Onboard-SDK-ROS/build
     cmake ../cmake-modules
     make
-    cd $WORKSPACE
+    cd $WORKSPACE/src/Onboard-SDK-ROS/dji-sdk/launch
+    echo "
+    Installation finished. Please edit `sdk.launch`
+    with your app id and encryption key, and then run
+    `cd $WORKSPACE && catkin_make`.
+    "    
+
+cd $WORKSPACE
     catkin_make
 }
 
