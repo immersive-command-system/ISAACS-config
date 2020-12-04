@@ -17,10 +17,22 @@ alias cm=catkin_make
 # Use this alias to quickly launch the DJI SDK.
 alias sdk='oslaunch dji_sdk sdk.launch'
 # Call this function to clean reinstall the DJI SDK.
-#function remake_sdk
-#{
-    # TODO
-#}
+function remake_sdk
+{
+    sudo rm -rf $WORKSPACE
+    mkdir -p $WORKSPACE/src
+    cd $WORKSPACE
+    catkin_make
+    git clone https://github.com/dji-sdk/Onboard-SDK-ROS.git $WORKSPACE/src/Onboard-SDK-ROS
+    cd $WORKSPACE/src/Onboard-SDK-ROS
+    git checkout f424a07
+    mkdir $WORKSPACE/src/Onboard-SDK-ROS/build
+    cd $WORKSPACE/src/Onboard-SDK-ROS/build
+    cmake ../cmake-modules
+    make
+    cd $WORKSPACE
+    catkin_make
+}
 
 
 
