@@ -12,11 +12,33 @@ export ROS_HOSTNAME=localhost
 # catkin_make is too long... ;)
 alias cm=catkin_make
 
+# To qickly rename the current tmux window.
+alias tr='tmux rename-window'
 
 
 
-# Use this alias to quickly launch the DJI SDK.
-alias sdk='oslaunch dji_sdk sdk.launch'
+
+# Use this alias to launch roscore and rename the current tmux window.
+function tmux_roscore
+{
+    if [[ $TERM == screen ]]; then
+        tmux rename-window roscore
+    fi
+    roscore
+}
+alias roscore=tmux_roscore
+
+# Use this alias to launch the DJI SDK and rename the current tmux window.
+function tmux_launch_sdk
+{
+    if [[ $TERM == screen ]]; then
+        tmux rename-window dji_sdk
+    fi
+    roslaunch dji_sdk sdk.launch   
+}
+alias launch_sdk='tmux_launch_sdk'
+alias sdk='tmux_launch_sdk'
+
 # Call this function to clean reinstall the DJI SDK.
 function remake_sdk
 {
@@ -92,6 +114,9 @@ function fzf-ros-topic-echo
 {
     local TOPIC_CHOSEN
     TOPIC_CHOSEN=$(rostopic list | fzf)
+    if [[ $TERM == screen ]]; then
+        tmux rename-window $TOPIC_CHOSEN
+    fi
     rostopic echo $TOPIC_CHOSEN
 }
 alias rtecho=fzf-ros-topic-echo
@@ -130,6 +155,9 @@ function fzf-roslaunch
 {
     local LAUNCHFILE
     LAUNCHFILE=$(find $ROS_DIR/share $WORKSPACE -type f -name "*.launch" | fzf)
+    if [[ $TERM == screen ]]; then
+        tmux rename-window $LAUNCHFILE
+    fi
     roslaunch $LAUNCHFILE
 }
 alias rlaunch=fzf-roslaunch
