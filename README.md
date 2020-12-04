@@ -18,7 +18,7 @@ mv $HOME/.bashrc $HOME/.bashrc_bkp`
 ln -sv ~/ISAACS-config/bash/bashrc $HOME/.bashrc
 ln -sv ~/ISAACS-config/tmux.conf $HOME/.tmux.conf
 ```
-
+Finally, please unbind the F1 key from your terminal (if using GNOME/Ubuntu terminal).
 
 ## Reinstalling the DJI SDK on the M210
 
